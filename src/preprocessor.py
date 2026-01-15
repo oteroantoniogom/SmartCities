@@ -327,7 +327,7 @@ class SmartUrbanPreprocessor:
         
         # 1. Remove duplicates
         print("Removing duplicates...")
-        df = self.remove_duplicates(df, "text")
+        df = self.remove_duplicates(df, "text").copy()
         
         # 2. Clean text
         print("Cleaning text...")
@@ -336,14 +336,14 @@ class SmartUrbanPreprocessor:
         # 3. Spell correction (optional, can be slow)
         if apply_spell_correction:
             print("Applying spell correction...")
-            df['clean_text'] = df['clean_text'].apply(self.correct_spelling)
+            df['clean_text'] = list(tqdm(df['clean_text'].apply(self.correct_spelling), total=len(df), desc="Spell correcting"))
         
         # 4. Tokenization and lemmatization
         print("Tokenizing and lemmatizing...")
         results = []
         entities_list = []
         
-        for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing"):
+        for idx, row in tqdm(df.iterrows(), total=len(df), desc="Processing"):
             text = row['clean_text']
             lang = row.get('language', 'en')
             

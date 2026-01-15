@@ -134,7 +134,7 @@ class SmartUrbanPreprocessor:
                 "text": df[text_col],
                 "source": "stores",
                 "language": "es",
-                "sentiment_score": "bad", # It's a complaint
+                "sentiment_score": "bad", 
             })
             unified_frames.append(norm_df)
 
@@ -324,6 +324,14 @@ class SmartUrbanPreprocessor:
             Processed DataFrame with additional columns
         """
         print(f"Processing corpus with {len(df)} documents...")
+        
+        # 0. Filter by language (only keep 'en' and 'es')
+        print("Filtering by language (en/es)...")
+        original_count = len(df)
+        df = df[df['language'].isin(['en', 'es'])].copy()
+        removed_count = original_count - len(df)
+        if removed_count > 0:
+            print(f"Removed {removed_count} documents with unsupported languages")
         
         # 1. Remove duplicates
         print("Removing duplicates...")

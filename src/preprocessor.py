@@ -44,7 +44,6 @@ class SmartUrbanPreprocessor:
         # 4. Amazon (Multilingual)
         print("Loading Amazon Reviews...")
         try:
-            # Optimize: Read subset if too large, but 8MB is fine.
             raw_data["amazon"] = pd.read_csv(DATA_PATHS["amazon"])
         except Exception as e:
             print(f"Error loading amazon: {e}")
@@ -55,8 +54,13 @@ class SmartUrbanPreprocessor:
             # File has no header, col 0 = sentiment, col 1 = text
             raw_data["news"] = pd.read_csv(DATA_PATHS["news"], header=None, names=["sentiment", "text"])
         except UnicodeDecodeError:
-            print("   (falling back to ISO-8859-1 encoding for news)")
+            print("Falling back to ISO-8859-1 encoding for news")
             raw_data["news"] = pd.read_csv(DATA_PATHS["news"], header=None, names=["sentiment", "text"], encoding="ISO-8859-1")
+            print("Removing non-UTF-8 characters from news text")
+            raw_data["news"]["text"] = raw_data["news"]["text"].str.encode('utf-8', errors='ignore').str.decode('utf-8')
+            print("Removing non-UTF-8 characters from news sentiment")
+            raw_data["news"]["sentiment"] = raw_data["news"]["sentiment"].str.encode('utf-8', errors='ignore').str.decode('utf-8')
+            print("Converted news to UTF-8")
         except Exception as e:
             print(f"Error loading news: {e}")
             

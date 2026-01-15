@@ -343,7 +343,7 @@ class SmartUrbanPreprocessor:
         results = []
         entities_list = []
         
-        for idx, row in tqdm(df.iterrows(), total=len(df), desc="Processing"):
+        for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing"):
             text = row['clean_text']
             lang = row.get('language', 'en')
             

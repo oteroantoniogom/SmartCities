@@ -45,7 +45,7 @@ class SentimentClassifier:
         report = classification_report(y_test, y_pred)
         cm = confusion_matrix(y_test, y_pred)
         
-        print(f"--- {self.model_type.upper()} Results ---")
+        print(f"{self.model_type.upper()} Results")
         return {"accuracy": acc, "report": report, "confusion_matrix": cm}
 
     def save(self, path):

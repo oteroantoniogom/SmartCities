@@ -21,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Global Models ---
+# Global Models
 # Initialize globally to load into memory once
 classifier = None
 rag_engine = None
@@ -54,7 +54,7 @@ def load_models():
 async def startup_event():
     load_models()
 
-# --- Schemas ---
+# Schemas
 class TextPayload(BaseModel):
     text: str
 
@@ -68,7 +68,7 @@ class RAGResponse(BaseModel):
     answer: str
     context: list
 
-# --- Endpoints ---
+# Endpoints
 @app.get("/health")
 def health():
     return {"status": "ok"}

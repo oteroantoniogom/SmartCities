@@ -43,7 +43,6 @@ The heterogeneous sources will be mapped to a unified `SmartUrbanComplaint` sche
   - Amazon: 1-2 (Bad), 3 (Neutral), 4-5 (Good)
   - Complaints (Stores, Financial, University): Default 'Bad'
   - News: As per dataset
-- `timestamp`: Date of complaint
 
 ## 4. Models & Algorithms
 

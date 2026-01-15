@@ -31,7 +31,7 @@ def main():
     results = {}
     
     for m in models:
-        print(f"\n--- Training {m.upper()} ---")
+        print(f"\nTraining {m.upper()}")
         clf = SentimentClassifier(model_type=m)
         clf.train(X_train, y_train)
         res = clf.evaluate(X_test, y_test)

@@ -44,7 +44,7 @@ def main():
     model = dl_manager.train_model(X_tr, y_tr, X_val, y_val, epochs=5, batch_size=64, lr=0.001)
     
     # 4. Evaluate
-    print("\n--- BiLSTM Evaluation ---")
+    print("\nBiLSTM Evaluation")
     report = dl_manager.evaluate(X_test, y_test)
     print(report)
 

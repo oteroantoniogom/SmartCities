@@ -15,7 +15,7 @@ DATA_PATHS = {
 
 # Schema Columns
 UNIFIED_COLUMNS = [
-    "id", "text", "source", "language", "category", "sentiment_score", "timestamp"
+    "id", "text", "source", "language", "sentiment_score",
 ]
 
 # Random Seed

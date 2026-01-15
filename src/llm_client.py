@@ -12,7 +12,7 @@ class OllamaClient:
             return f"Error communicating with Ollama: {e}\nEnsure Ollama is running and model '{self.model}' is pulled."
 
     def chat_loop(self, rag_engine):
-        print("--- Smart Urban RAG Assistant (type 'quit' to exit) ---")
+        print("Smart Urban RAG Assistant (type 'quit' to exit)")
         while True:
             query = input("\nUser: ")
             if query.lower() in ['quit', 'exit']:

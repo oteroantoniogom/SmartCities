@@ -5,37 +5,37 @@ import RAGChat from '../components/RAGChat';
 ---
 
 <Layout title="Smart Urban Analysis">
-	<main className="min-h-screen bg-slate-50 pb-12">
+	<main class="min-h-screen bg-slate-50 pb-12">
 		{/* Hero Section */}
-		<header className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-12 px-4 shadow-lg">
-			<div className="max-w-6xl mx-auto">
-				<h1 className="text-4xl font-extrabold tracking-tight mb-2">
-					Smart Urban <span className="text-blue-400">Analysis System</span>
+		<header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-12 px-4 shadow-lg">
+			<div class="max-w-6xl mx-auto">
+				<h1 class="text-4xl font-extrabold tracking-tight mb-2">
+					Smart Urban <span class="text-blue-400">Analysis System</span>
 				</h1>
-				<p className="text-slate-300 text-lg max-w-2xl">
+				<p class="text-slate-300 text-lg max-w-2xl">
 					Advanced NLP platform for citizen feedback classification and semantic retrieval using Deep Learning and RAG.
 				</p>
 			</div>
 		</header>
 
 		{/* Dashboard Grid */}
-		<div className="max-w-6xl mx-auto px-4 mt-8">
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+		<div class="max-w-6xl mx-auto px-4 mt-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 				
 				{/* Left: Classification */}
 				<section>
-					<div className="mb-4">
-						<h3 className="text-lg font-semibold text-slate-700 mb-1">Feedback Triage</h3>
-						<p className="text-sm text-slate-500">Analyze incoming messages for sentiment routing.</p>
+					<div class="mb-4">
+						<h3 class="text-lg font-semibold text-slate-700 mb-1">Feedback Triage</h3>
+						<p class="text-sm text-slate-500">Analyze incoming messages for sentiment routing.</p>
 					</div>
 					<ComplaintForm client:load />
 				</section>
 
 				{/* Right: RAG Assistant */}
 				<section>
-					<div className="mb-4">
-						<h3 className="text-lg font-semibold text-slate-700 mb-1">Knowledge Assistant</h3>
-						<p className="text-sm text-slate-500">Query the database for historical context and reports.</p>
+					<div class="mb-4">
+						<h3 class="text-lg font-semibold text-slate-700 mb-1">Knowledge Assistant</h3>
+						<p class="text-sm text-slate-500">Query the database for historical context and reports.</p>
 					</div>
 					<RAGChat client:load />
 				</section>

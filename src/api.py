@@ -32,17 +32,18 @@ def load_models():
     
     # 1. Load Classifier
     print("Loading Classifier...")
-    model_path = Path("models/sentiment_svm.joblib")
+    model_path = Path("models/sentiment_lgbm.joblib")
     if model_path.exists():
-        classifier = SentimentClassifier(model_type='svm')
+        classifier = SentimentClassifier(model_type='lgbm')
         classifier.load(str(model_path))
     else:
         print("Warning: Classifier model not found. /classify will fail.")
 
     # 2. Load RAG
     print("Loading RAG Engine...")
-    data_path = Path("data/processed_corpus_balanced.csv")
+    data_path = Path("data/processed_corpus.csv")
     if data_path.exists():
+        # Using full corpus for better retrieval
         rag_engine = RAGEngine(data_path=str(data_path))
     else:
         print("Warning: Data for RAG not found.")

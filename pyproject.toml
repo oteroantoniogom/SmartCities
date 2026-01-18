@@ -5,11 +5,17 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "gensim>=4.4.0",
+    "hdbscan>=0.8.41",
+    "langchain>=1.2.6",
+    "langchain-community>=0.4.1",
     "lightgbm>=4.6.0",
     "ollama>=0.6.1",
+    "seaborn>=0.13.2",
     "sentence-transformers>=5.2.0",
     "squarify>=0.4.4",
     "textblob>=0.19.0",
+    "umap-learn>=0.5.11",
     "wordcloud>=1.9.5",
     "xgboost>=3.1.3",
 ]
